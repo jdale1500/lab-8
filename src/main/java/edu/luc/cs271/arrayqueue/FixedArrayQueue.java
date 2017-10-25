@@ -16,7 +16,7 @@ public class FixedArrayQueue<E> implements SimpleQueue<E> {
 
   private final E[] data;
 
-  // TODO why do we need an explicit constructor?
+  // Finished why do we need an explicit constructor? To initialize class properties
 
   @SuppressWarnings("unchecked")
   public FixedArrayQueue(final int capacity) {
@@ -24,31 +24,43 @@ public class FixedArrayQueue<E> implements SimpleQueue<E> {
     this.data = (E[]) new Object[capacity];
     this.size = 0;
     this.front = 0;
-    this.rear = capacity - 1;
+    this.rear = 0;
   }
 
   @Override
   public boolean offer(final E obj) {
-    // TODO
-    return false;
+    // Finished
+    this.data 
+    if (rear >= capacity) {
+      return false;
+    }
+    data[rear] = obj;
+    rear = rear + 1;
+    size++;
+    return true;
   }
 
   @Override
   public E peek() {
-    // TODO
-    return null;
+    // Finished
+    return data[front];
   }
 
   @Override
   public E poll() {
-    // TODO
-    return null;
+    // Finished
+    E obj = data[front];
+    data[front] = null;
+    front++;
+    size--;
+    return obj;
   }
 
   @Override
   public boolean isEmpty() {
-    // TODO
-    return true;
+    // Finished
+    
+    return size == 0;
   }
 
   @Override
@@ -59,6 +71,7 @@ public class FixedArrayQueue<E> implements SimpleQueue<E> {
   @Override
   public List<E> asList() {
     // TODO implement using an ArrayList preallocated with the right size
+    
     return Arrays.asList();
   }
 }
